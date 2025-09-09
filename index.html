@@ -10,15 +10,15 @@
 
     For more details:
     * https://developer.mozilla.org/en-US/docs/Web/HTML/Element/base
-
-    This is a placeholder for base href that will be replaced by the value of
-    the `--base-href` argument provided to `flutter build`.
   -->
     <base href="/" />
 
     <meta charset="UTF-8" />
     <meta content="IE=Edge" http-equiv="X-UA-Compatible" />
     <meta name="description" content="A new Flutter project." />
+
+    <!-- Meta viewport para que la app se escale como móvil -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <!-- iOS meta tags & icons -->
     <meta name="mobile-web-app-capable" content="yes" />
@@ -31,8 +31,39 @@
 
     <title>space_escape_room</title>
     <link rel="manifest" href="manifest.json" />
+
+    <!-- CSS opcional para centrar y simular móvil en escritorio -->
+    <style>
+      html,
+      body {
+        margin: 0;
+        padding: 0;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: #f0f0f0;
+      }
+
+      #flutter-container {
+        width: 375px; /* ancho móvil */
+        height: 812px; /* alto móvil */
+        border: 1px solid #ccc;
+        border-radius: 20px;
+        overflow: hidden;
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+      }
+
+      #flutter-container iframe,
+      #flutter-container > * {
+        width: 100%;
+        height: 100%;
+      }
+    </style>
   </head>
   <body>
-    <script src="flutter_bootstrap.js" async></script>
+    <div id="flutter-container">
+      <script src="flutter_bootstrap.js" async></script>
+    </div>
   </body>
 </html>
